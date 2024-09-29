@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>Library Management System</h1>
+
+    <div class="container">
+      <div class="search-books-section">
+        <h2>Search Books</h2>
+        <input type="text" id="searchInput" placeholder="Search by title..." />
+        <button onclick="searchBooks()">Search</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Published Year</th>
+              <th>Genre</th>
+              <th>Availability</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookList"></tbody>
+        </table>
+      </div>
+
+      <div class="add-book-section">
+        <button id="toggleAddBookBtn" onclick="funcAddBook()">
+          <div id="message2"></div>
+        </button>
+        <div id="addBookSection" class="add-book-section" style="display: none">
+          <h2>Add a New Book</h2>
+          <input type="text" id="title" placeholder="Title" />
+          <input type="text" id="author" placeholder="Author" />
+          <input
+            type="number"
+            id="publishedYear"
+            placeholder="Published Year"
+          />
+          <select id="genre">
+            <option value="Fiction">Fiction</option>
+            <option value="NonFiction">Non-Fiction</option>
+            <option value="Science">Science</option>
+            <option value="History">History</option>
+          </select>
+          <input type="checkbox" id="availability" /> Available
+          <button onclick="addBook()">Submit</button>
+          <div id="message"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script>
+      displayBooks();
+    </script>
+  </body>
+</html>
