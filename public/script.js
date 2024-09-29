@@ -162,3 +162,17 @@ function toggleAddBook() {
     document.getElementById("message2").innerHTML = "Add new book";
   }
 }
+
+function exportToJSON() {
+  const books = library;
+  const booksJSON = JSON.stringify(books, null, 2);
+  const blob = new Blob([booksJSON], { type: "application/json" });
+
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "books.json";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
